@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AgentShield AI</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Microsoft Build AI Prototype</p>
+          <h1>AgentShield AI</h1>
+          <p class="hero-copy">
+            A prompt-injection firewall that inspects web content, agent instructions, and tool calls before an AI agent acts.
+          </p>
+        </div>
+        <div class="hero-status" aria-label="System status">
+          <span class="pulse"></span>
+          Guardrail active
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="scanner-panel">
+          <div class="panel-header">
+            <div>
+              <h2>Threat Scanner</h2>
+              <p>Paste content your agent is about to read or execute.</p>
+            </div>
+            <select id="scenarioSelect" aria-label="Load example scenario">
+              <option value="">Load example</option>
+              <option value="benign">Benign support article</option>
+              <option value="promptInjection">Prompt injection page</option>
+              <option value="secretTheft">Secret exfiltration attempt</option>
+              <option value="toolAbuse">Unauthorized tool call</option>
+            </select>
+          </div>
+
+          <textarea id="promptInput" spellcheck="false" placeholder="Paste website text, agent instruction, user prompt, or tool response here..."></textarea>
+
+          <div class="actions">
+            <button id="scanButton" type="button">Scan Content</button>
+            <button id="clearButton" class="secondary" type="button">Clear</button>
+            <label class="azure-toggle">
+              <input id="azureToggle" type="checkbox">
+              Azure enhanced scan
+            </label>
+          </div>
+        </div>
+
+        <aside class="result-panel">
+          <div class="score-card" id="scoreCard">
+            <span class="score-label">Risk Score</span>
+            <strong id="riskScore">0</strong>
+            <span id="riskLevel">Waiting for scan</span>
+          </div>
+
+          <div class="recommendation">
+            <h2>Decision</h2>
+            <p id="decisionText">No content scanned yet.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="findings">
+        <div class="section-title">
+          <h2>Firewall Findings</h2>
+          <p>Explainable signals that can be logged before an agent takes action.</p>
+        </div>
+        <div id="findingList" class="finding-list">
+          <article class="empty-state">Scan content to see detected risks, recommended actions, and safe handling guidance.</article>
+        </div>
+      </section>
+
+      <section class="dashboard">
+        <div>
+          <h2>Why Microsoft Could Use This</h2>
+          <p>
+            AgentShield can sit in front of Copilot-style agents, Azure AI Foundry agents, browser agents, and workflow automations to detect hostile instructions before they trigger tools or leak data.
+          </p>
+        </div>
+        <div class="metric-grid">
+          <div class="metric">
+            <span>Protected Surfaces</span>
+            <strong>4</strong>
+            <p>Web, chat, files, tools</p>
+          </div>
+          <div class="metric">
+            <span>Response Modes</span>
+            <strong>3</strong>
+            <p>Allow, review, block</p>
+          </div>
+          <div class="metric">
+            <span>Stack Fit</span>
+            <strong>Azure</strong>
+            <p>OpenAI, AI Search, Content Safety</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="detector.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

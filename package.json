@@ -1,0 +1,19 @@
+{
+  "name": "agentshield-ai",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Prompt-injection firewall prototype for Microsoft Build AI 2026.",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node test-detector.mjs",
+    "check": "node --check app.js && node --check detector.js && node --check server.mjs"
+  },
+  "keywords": [
+    "ai-security",
+    "prompt-injection",
+    "azure-openai",
+    "agentic-ai"
+  ],
+  "author": "",
+  "license": "MIT"
+}
